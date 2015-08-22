@@ -312,17 +312,26 @@ var calculation = {
 		if (val2 === 0) {
 			return 'Infinite';
 		}
-		var val1Arr = val1.toString().split(''),
-		    val2Arr = val2.toString().split(''),
+		var val2ano = val2,
+		    val1ano = val1,
 		    result = [],
 		    n = 0,
 		    h = 0,
-		    p = 0;
+		    p = 0,
+		    l = 0,
+		    c = 0;
 		while(val1 < val2){
 			val1 *= 10;
 			n++;//记录小数点后面的0
 		}
-		while(val1/val2)
+		while(val1ano > val2ano){
+			val2ano *= 10;
+			l++;
+		}
+		if (val1ano == val2) {
+			c++;
+		}
+		while(val1%val2)
 		{
 			for (var i = 0; i < p; i++) {
 				result.push(0);
@@ -340,7 +349,11 @@ var calculation = {
 			}
 		}
 		if (!n) {
-
+			if (c) {
+				return 1;
+			}else {
+				result.splice(l,0,'.')
+			}
 		}else {
 			for (var i = 0; i < n-1; i++) {
 		        result.unshift(0);	
