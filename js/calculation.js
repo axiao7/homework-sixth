@@ -319,7 +319,8 @@ var calculation = {
 		    h = 0,
 		    p = 0,
 		    l = 0,
-		    c = 0;
+		    c = 0,
+		    checkGo = 1;
 		while(val1 < val2){
 			val1 *= 10;
 			n++;//记录小数点后面的0
@@ -328,10 +329,10 @@ var calculation = {
 			val2ano *= 10;
 			l++;
 		}
-		if (val1ano == val2) {
+		if ((val1ano%val2)==0) {
 			c++;
 		}
-		while(val1%val2)
+		while(checkGo)
 		{
 			for (var i = 0; i < p; i++) {
 				result.push(0);
@@ -339,7 +340,7 @@ var calculation = {
 			p = 0;
 			result.push(Math.floor(val1/val2));
 			val1 = (val1%val2)*10;
-			while(val1 < val2){
+			while(val1 < val2 && val1!=0){
 				val1 *= 10;
 				p++;
 			}
@@ -347,10 +348,13 @@ var calculation = {
 			if (h > 10) {
 				break;
 			}
+			if (val1 == 0) {
+				checkGo--;
+			}
 		}
 		if (!n) {
 			if (c) {
-				return 1;
+				return val1ano/val2;
 			}else {
 				result.splice(l,0,'.')
 			}
