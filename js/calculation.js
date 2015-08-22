@@ -302,9 +302,54 @@ var calculation = {
 		for (var i = 0; i < val2; i++) {
 			result += parseInt(calculation.addNum(val1, 0));//直接进行val2个val1相加就行
 		}
-		return result;
+		if (result > Math.pow(2, 1024)) {
+			return 'Infinite';
+		}else {
+			return result;
+		}		
 	},
 	divideNum: function  (val1, val2) {
-		return val1/val2;
+		if (val2 === 0) {
+			return 'Infinite';
+		}
+		var val1Arr = val1.toString().split(''),
+		    val2Arr = val2.toString().split(''),
+		    result = [],
+		    n = 0,
+		    h = 0,
+		    p = 0;
+		while(val1 < val2){
+			val1 *= 10;
+			n++;//记录小数点后面的0
+		}
+		while(val1/val2)
+		{
+			for (var i = 0; i < p; i++) {
+				result.push(0);
+			}
+			p = 0;
+			result.push(Math.floor(val1/val2));
+			val1 = (val1%val2)*10;
+			while(val1 < val2){
+				val1 *= 10;
+				p++;
+			}
+			h++;
+			if (h > 10) {
+				break;
+			}
+		}
+		if (!n) {
+
+		}else {
+			for (var i = 0; i < n-1; i++) {
+		        result.unshift(0);	
+		    }
+		    result.unshift('.');
+		    result.unshift('0');
+		}
+		
+
+		return result.join('');
 	}
 }
