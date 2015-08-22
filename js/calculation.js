@@ -305,6 +305,6 @@ var calculation = {
 		return result;
 	},
 	divideNum: function  (val1, val2) {
-		// body...
+		return val1/val2;
 	}
 }
