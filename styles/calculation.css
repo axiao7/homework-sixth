@@ -1,0 +1,53 @@
+body,
+div,
+input {
+  margin: 0;
+  padding: 0;
+}
+.calculation {
+  width: 312px;
+  height: 515px;
+  margin: 0 auto;
+  font-size: 0;
+  background: #000;
+}
+.calculation input {
+  float: left;
+  cursor: pointer;
+}
+.calculation .output {
+  width: 100%;
+  height: 125px;
+}
+.calculation .output .show {
+  width: 100%;
+  height: 60px;
+  margin-top: 50px;
+  font-size: 60px;
+  color: #fff;
+  text-align: right;
+  background: #000;
+  border: none;
+}
+.calculation .blank {
+  width: 234px;
+  height: 78px;
+  background: #bebfc1;
+  border: 1px #a8a9ab solid;
+}
+.calculation .calculate {
+  width: 78px;
+  height: 78px;
+  font-size: 28px;
+  color: #fff;
+  background: #f58811;
+  border: 1px #a8a9ab solid;
+}
+.calculation .num {
+  width: 78px;
+  height: 78px;
+  font-size: 28px;
+  color: #434446;
+  background: #d2d3d5;
+  border: 1px #a8a9ab solid;
+}
